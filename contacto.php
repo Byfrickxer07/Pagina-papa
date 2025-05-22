@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $contacto_id = $stmt->insert_id;
             
             // Enviar correo electrónico
-            $para = "info@empresa.com"; // Cambiar por el correo de la empresa
+            $para = EMAIL_ADMIN; // Usa la constante definida en config.php
             $asunto_email = "Nuevo mensaje de contacto #$contacto_id: $asunto";
             
             $mensaje_email = "
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresa - Contacto</title>
+    <title>NSYSTEM - Contacto</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <span class="text-orange">EMPRESA</span>
+                <span class="text-orange">NSYSTEM</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -185,8 +185,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
 
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+      <!-- Footer -->
+      <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -201,6 +201,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <li><a href="noticias.php" class="text-white">Noticias</a></li>
                         <li><a href="contacto.php" class="text-white">Contacto</a></li>
                     </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-orange">Contacto</h5>
+                    <address>
+                        <p><i class="fas fa-envelope me-2"></i> info@empresa.com</p>
+                    </address>
+                   
                 </div>
             </div>
             <hr class="bg-secondary">

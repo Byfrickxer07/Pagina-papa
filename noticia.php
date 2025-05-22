@@ -62,7 +62,7 @@ $stmt_relacionadas->close();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <span class="text-orange">EMPRESA</span>
+                <span class="text-orange">NSYSTEM</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -245,8 +245,8 @@ $stmt_relacionadas->close();
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+     <!-- Footer -->
+     <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -262,14 +262,20 @@ $stmt_relacionadas->close();
                         <li><a href="contacto.php" class="text-white">Contacto</a></li>
                     </ul>
                 </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-orange">Contacto</h5>
+                    <address>
+                        <p><i class="fas fa-envelope me-2"></i> info@empresa.com</p>
+                    </address>
+                   
+                </div>
             </div>
             <hr class="bg-secondary">
             <div class="text-center">
-                <p>&copy; <?php echo date('Y'); ?> NSYSTEM. Todos los derechos reservados.</p>
+                <p>&copy; <?php echo date('Y'); ?> EMPRESA. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->

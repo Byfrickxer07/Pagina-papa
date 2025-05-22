@@ -11,7 +11,7 @@ define('DB_PASS', '');
 define('DB_NAME', 'nsystem');
 
 // Configuración de correo electrónico
-define('EMAIL_ADMIN', 'info@empresa.com');
+define('EMAIL_ADMIN', 'byfrickxer@gmail.com'); // Cambia esta dirección por tu correo electrónico personal
 
 // Conexión a la base de datos
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS);

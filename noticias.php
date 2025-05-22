@@ -24,7 +24,7 @@ $result = $conn->query($sql);
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <span class="text-orange">EMPRESA</span>
+                <span class="text-orange">NSYSTEM</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -121,8 +121,8 @@ $result = $conn->query($sql);
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+      <!-- Footer -->
+      <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -137,6 +137,13 @@ $result = $conn->query($sql);
                         <li><a href="noticias.php" class="text-white">Noticias</a></li>
                         <li><a href="contacto.php" class="text-white">Contacto</a></li>
                     </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-orange">Contacto</h5>
+                    <address>
+                        <p><i class="fas fa-envelope me-2"></i> info@empresa.com</p>
+                    </address>
+                   
                 </div>
             </div>
             <hr class="bg-secondary">

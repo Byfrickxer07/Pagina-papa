@@ -20,7 +20,7 @@ require_once 'config/config.php';
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <span class="text-orange">EMPRESA</span>
+                <span class="text-orange">NSYSTEM</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -148,7 +148,7 @@ require_once 'config/config.php';
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <h5 class="text-orange">EMPRESA</h5>
+                    <h5 class="text-orange">NSYSTEM</h5>
                     <p>Ofrecemos soluciones innovadoras y de alta calidad para satisfacer las necesidades de nuestros clientes.</p>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -170,7 +170,7 @@ require_once 'config/config.php';
             </div>
             <hr class="bg-secondary">
             <div class="text-center">
-                <p>&copy; <?php echo date('Y'); ?> EMPRESA. Todos los derechos reservados.</p>
+                <p>&copy; <?php echo date('Y'); ?> NSYSTEM. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
