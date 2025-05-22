@@ -250,7 +250,7 @@ $stmt_relacionadas->close();
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <h5 class="text-orange">EMPRESA</h5>
+                    <h5 class="text-orange">NSYSTEM</h5>
                     <p>Ofrecemos soluciones innovadoras y de alta calidad para satisfacer las necesidades de nuestros clientes.</p>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -262,24 +262,10 @@ $stmt_relacionadas->close();
                         <li><a href="contacto.php" class="text-white">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <h5 class="text-orange">Contacto</h5>
-                    <address>
-                        <p><i class="fas fa-map-marker-alt me-2"></i> Dirección de la Empresa</p>
-                        <p><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
-                        <p><i class="fas fa-envelope me-2"></i> info@empresa.com</p>
-                    </address>
-                    <div class="social-icons">
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
             </div>
             <hr class="bg-secondary">
             <div class="text-center">
-                <p>&copy; <?php echo date('Y'); ?> EMPRESA. Todos los derechos reservados.</p>
+                <p>&copy; <?php echo date('Y'); ?> NSYSTEM. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
