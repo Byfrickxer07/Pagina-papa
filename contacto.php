@@ -127,9 +127,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Contact Section -->
     <section class="contact-section py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <h2 class="section-title">Envíanos un Mensaje</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 mb-4 text-center">
+                    <h2 class="section-title text-center">Envíanos un Mensaje</h2>
                     
                     <?php if (!empty($mensaje)): ?>
                         <div class="alert alert-success" role="alert">
@@ -143,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     <?php endif; ?>
                     
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="contact-form">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="contact-form mx-auto" style="max-width: 600px;">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="nombre" class="form-label">Nombre *</label>
@@ -172,11 +172,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <label for="mensaje" class="form-label">Mensaje *</label>
                             <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required><?php echo isset($mensaje_texto) ? htmlspecialchars($mensaje_texto) : ''; ?></textarea>
                         </div>
-                        <div class="mb-3 form-check">
+                        <div class="mb-3 form-check text-start">
                             <input type="checkbox" class="form-check-input" id="privacidad" required>
                             <label class="form-check-label" for="privacidad">Acepto la política de privacidad *</label>
                         </div>
-                        <button type="submit" class="btn btn-orange">Enviar Mensaje</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-orange btn-lg">Enviar Mensaje</button>
+                        </div>
                     </form>
                 </div>
 
