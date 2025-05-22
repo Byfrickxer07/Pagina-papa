@@ -361,16 +361,48 @@ footer a:hover {
 }
 
 /* Responsive Styles */
+/* Large Devices (Desktops) */
+@media (max-width: 1199.98px) {
+    .carousel-item {
+        height: 500px;
+    }
+    
+    .service-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* Medium Devices (Tablets) */
 @media (max-width: 991.98px) {
     .carousel-item {
         height: 450px;
     }
     
+    .carousel-caption {
+        bottom: 15%;
+    }
+    
     .carousel-caption h2 {
         font-size: 2rem;
     }
+    
+    /* Ajustes para servicios */
+    .service-card {
+        margin-bottom: 20px;
+    }
+    
+    /* Ajustes para footer */
+    footer .col-md-4 {
+        margin-bottom: 30px;
+    }
+    
+    /* Ajustes para about section */
+    .about-section .col-lg-6:first-child {
+        margin-bottom: 30px;
+    }
 }
 
+/* Small Devices (Landscape Phones) */
 @media (max-width: 767.98px) {
     .carousel-item {
         height: 350px;
@@ -380,11 +412,36 @@ footer a:hover {
         font-size: 1.5rem;
     }
     
+    .carousel-caption .btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
     .section-title {
         font-size: 1.8rem;
     }
+    
+    /* Ajustes para noticias */
+    .news-card {
+        margin-bottom: 20px;
+    }
+    
+    .news-card img {
+        height: 180px;
+    }
+    
+    /* Ajustes para servicios */
+    .service-img-container img {
+        height: 250px;
+    }
+    
+    /* Ajustes para contacto */
+    .contact-info {
+        margin-bottom: 30px;
+    }
 }
 
+/* Extra Small Devices (Portrait Phones) */
 @media (max-width: 575.98px) {
     .carousel-item {
         height: 250px;
@@ -392,6 +449,7 @@ footer a:hover {
     
     .carousel-caption {
         bottom: 10%;
+        padding: 10px;
     }
     
     .carousel-caption h2 {
@@ -402,4 +460,73 @@ footer a:hover {
     .carousel-caption p {
         display: none;
     }
+    
+    .carousel-caption .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    /* Ajustes para secciones */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    /* Ajustes para cards */
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .service-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Ajustes para página de noticias */
+    .noticia-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Ajustes para navbar */
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* Ajustes específicos para dispositivos muy pequeños */
+@media (max-width: 320px) {
+    .carousel-item {
+        height: 200px;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* Botón Volver Arriba */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    line-height: 40px;
 }

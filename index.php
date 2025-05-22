@@ -242,6 +242,11 @@ require_once 'config/config.php';
             </div>
         </div>
     </footer>
+    <!-- Botón Volver Arriba -->
+    <button id="scrollTopBtn" class="btn btn-orange scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->

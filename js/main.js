@@ -1,6 +1,10 @@
 /**
  * JavaScript principal para la página web empresarial
+ * Con mejoras para dispositivos móviles y responsividad
  */
+
+// Detectar si es dispositivo móvil
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar todos los tooltips
@@ -18,14 +22,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Añadir clase 'active' a los enlaces de navegación según la página actual
     const currentLocation = window.location.pathname;
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navbarToggler = document.querySelector('.navbar-toggler');
     
     navLinks.forEach(link => {
+        // Marcar el enlace activo
         if (link.getAttribute('href') === currentLocation || 
             (currentLocation.includes(link.getAttribute('href')) && link.getAttribute('href') !== 'index.php')) {
             link.classList.add('active');
         } else if (currentLocation === '/' && link.getAttribute('href') === 'index.php') {
             link.classList.add('active');
         }
+        
+        // Cerrar menú al hacer clic en un enlace (para móviles)
+        link.addEventListener('click', function() {
+            if (window.innerWidth < 992 && navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+        });
     });
     
     // Animación de desplazamiento suave para enlaces internos
@@ -122,12 +137,27 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
     window.addEventListener('scroll', animateOnScroll);
     
-    // Inicializar carrusel con autoplay
+    // Inicializar carrusel con autoplay y ajustes para móviles
     var carousel = document.querySelector('#mainCarousel');
     if (carousel) {
+        // Ajustar intervalo según el dispositivo
+        var interval = isMobile ? 7000 : 5000; // Más tiempo en móviles para mejor lectura
+        
         var carouselInstance = new bootstrap.Carousel(carousel, {
-            interval: 5000
+            interval: interval,
+            touch: true // Habilitar gestos táctiles
         });
+        
+        // Pausar carrusel al mantener presionado en dispositivos táctiles
+        if ('ontouchstart' in window) {
+            carousel.addEventListener('touchstart', function() {
+                carouselInstance.pause();
+            });
+            
+            carousel.addEventListener('touchend', function() {
+                carouselInstance.cycle();
+            });
+        }
     }
 });
 
@@ -144,9 +174,11 @@ window.addEventListener('scroll', function() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     if (scrollTopBtn) {
         if (window.pageYOffset > 300) {
-            scrollTopBtn.style.display = 'block';
+            scrollTopBtn.style.display = 'flex';
+            scrollTopBtn.classList.add('show');
         } else {
             scrollTopBtn.style.display = 'none';
+            scrollTopBtn.classList.remove('show');
         }
     }
 });
