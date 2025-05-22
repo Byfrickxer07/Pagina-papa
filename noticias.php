@@ -85,9 +85,9 @@ $result = $conn->query($sql);
                         <div class="card news-card h-100">
                             <img src="img/news1.jpg" class="card-img-top" alt="Noticia 1">
                             <div class="card-body">
-                                <h5 class="card-title">Lanzamiento de Nuevo Servicio</h5>
-                                <p class="card-text">Estamos emocionados de anunciar el lanzamiento de nuestro nuevo servicio que revolucionará el mercado. Este servicio ha sido desarrollado después de meses de investigación y desarrollo para satisfacer las necesidades cambiantes de nuestros clientes...</p>
-                                <p class="text-muted"><small>Publicado: 22/05/2025</small></p>
+                                <h5 class="card-title">Lanzamiento de Inteligencia Artificial Avanzada</h5>
+                                <p class="card-text">Hemos desarrollado una nueva plataforma de IA que revoluciona el análisis de datos empresariales. Esta tecnología permite a las empresas automatizar procesos complejos y obtener insights valiosos a partir de grandes volúmenes de información...</p>
+                                <p class="text-muted"><small>Publicado: 25/05/2025</small></p>
                                 <a href="#" class="btn btn-orange">Leer Más</a>
                             </div>
                         </div>
@@ -96,8 +96,8 @@ $result = $conn->query($sql);
                         <div class="card news-card h-100">
                             <img src="img/news2.jpg" class="card-img-top" alt="Noticia 2">
                             <div class="card-body">
-                                <h5 class="card-title">Expansión de Operaciones</h5>
-                                <p class="card-text">Nos complace informar que estamos expandiendo nuestras operaciones a nuevas regiones para servir mejor a nuestros clientes. Esta expansión estratégica nos permitirá llegar a más mercados y ofrecer nuestros servicios a una base de clientes más amplia...</p>
+                                <h5 class="card-title">Nueva Tecnología de Realidad Aumentada</h5>
+                                <p class="card-text">Presentamos nuestra innovadora solución de Realidad Aumentada para el sector industrial. Esta tecnología permite a los técnicos visualizar componentes internos de maquinaria compleja en tiempo real, reduciendo los tiempos de mantenimiento y mejorando la precisión...</p>
                                 <p class="text-muted"><small>Publicado: 15/05/2025</small></p>
                                 <a href="#" class="btn btn-orange">Leer Más</a>
                             </div>
@@ -107,8 +107,8 @@ $result = $conn->query($sql);
                         <div class="card news-card h-100">
                             <img src="img/news3.jpg" class="card-img-top" alt="Noticia 3">
                             <div class="card-body">
-                                <h5 class="card-title">Reconocimiento del Sector</h5>
-                                <p class="card-text">Nuestra empresa ha sido reconocida como líder en innovación por la asociación del sector, destacando nuestro compromiso con la excelencia y la calidad. Este reconocimiento es un testimonio del arduo trabajo y la dedicación de nuestro equipo...</p>
+                                <h5 class="card-title">Avances en Ciberseguridad</h5>
+                                <p class="card-text">Hemos desarrollado un nuevo sistema de protección contra amenazas cibernéticas que utiliza algoritmos de aprendizaje automático para detectar patrones de ataques desconocidos. Esta solución proporciona una capa adicional de seguridad para infraestructuras críticas...</p>
                                 <p class="text-muted"><small>Publicado: 05/05/2025</small></p>
                                 <a href="#" class="btn btn-orange">Leer Más</a>
                             </div>

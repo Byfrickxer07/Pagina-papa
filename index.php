@@ -172,9 +172,9 @@ require_once 'config/config.php';
                         <div class="card news-card h-100">
                             <img src="img/news1.jpg" class="card-img-top" alt="Noticia 1">
                             <div class="card-body">
-                                <h5 class="card-title">Lanzamiento de Nuevo Servicio</h5>
-                                <p class="card-text">Estamos emocionados de anunciar el lanzamiento de nuestro nuevo servicio que revolucionará el mercado...</p>
-                                <p class="text-muted"><small>Publicado: 22/05/2025</small></p>
+                                <h5 class="card-title">Lanzamiento de Inteligencia Artificial Avanzada</h5>
+                                <p class="card-text">Hemos desarrollado una nueva plataforma de IA que revoluciona el análisis de datos empresariales...</p>
+                                <p class="text-muted"><small>Publicado: 25/05/2025</small></p>
                                 <a href="#" class="btn btn-orange">Leer Más</a>
                             </div>
                         </div>
@@ -183,8 +183,8 @@ require_once 'config/config.php';
                         <div class="card news-card h-100">
                             <img src="img/news2.jpg" class="card-img-top" alt="Noticia 2">
                             <div class="card-body">
-                                <h5 class="card-title">Expansión de Operaciones</h5>
-                                <p class="card-text">Nos complace informar que estamos expandiendo nuestras operaciones a nuevas regiones para servir mejor a nuestros clientes...</p>
+                                <h5 class="card-title">Nueva Tecnología de Realidad Aumentada</h5>
+                                <p class="card-text">Presentamos nuestra innovadora solución de Realidad Aumentada para el sector industrial que mejora la eficiencia...</p>
                                 <p class="text-muted"><small>Publicado: 15/05/2025</small></p>
                                 <a href="#" class="btn btn-orange">Leer Más</a>
                             </div>
@@ -194,8 +194,8 @@ require_once 'config/config.php';
                         <div class="card news-card h-100">
                             <img src="img/news3.jpg" class="card-img-top" alt="Noticia 3">
                             <div class="card-body">
-                                <h5 class="card-title">Reconocimiento del Sector</h5>
-                                <p class="card-text">Nuestra empresa ha sido reconocida como líder en innovación por la asociación del sector, destacando nuestro compromiso...</p>
+                                <h5 class="card-title">Avances en Ciberseguridad</h5>
+                                <p class="card-text">Hemos desarrollado un nuevo sistema de protección contra amenazas cibernéticas utilizando algoritmos de aprendizaje automático...</p>
                                 <p class="text-muted"><small>Publicado: 05/05/2025</small></p>
                                 <a href="#" class="btn btn-orange">Leer Más</a>
                             </div>

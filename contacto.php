@@ -179,75 +179,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <button type="submit" class="btn btn-orange">Enviar Mensaje</button>
                     </form>
                 </div>
-                <div class="col-lg-6">
-                    <h2 class="section-title">Información de Contacto</h2>
-                    <p>No dudes en ponerte en contacto con nosotros utilizando la información a continuación. Estamos disponibles para atenderte y responder a todas tus consultas.</p>
-                    
-                    <div class="contact-info mt-4">
-                        <div class="d-flex mb-3">
-                            <div class="contact-icon me-3">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-1">Dirección</h5>
-                                <p class="mb-0">Av. Principal 123, Ciudad, País</p>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex mb-3">
-                            <div class="contact-icon me-3">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-1">Teléfono</h5>
-                                <p class="mb-0">(123) 456-7890</p>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex mb-3">
-                            <div class="contact-icon me-3">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-1">Email</h5>
-                                <p class="mb-0">info@empresa.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex mb-3">
-                            <div class="contact-icon me-3">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-1">Horario de Atención</h5>
-                                <p class="mb-0">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-                                <p class="mb-0">Sábados: 9:00 AM - 1:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-media mt-4">
-                        <h5>Síguenos en Redes Sociales</h5>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon me-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon me-2"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon me-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon me-2"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container-fluid p-0">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316249594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzEnMzkuNSJOIDPCsDIyJzMxLjEiRQ!5e0!3m2!1sen!2sng!4v1627309850095!5m2!1sen!2sng" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
