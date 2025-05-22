@@ -31,41 +31,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             $contacto_id = $stmt->insert_id;
             
-            // Enviar correo electrónico
+            // En entorno de desarrollo, solo guardamos en la base de datos sin enviar correo
+            // para evitar errores de conexión con el servidor de correo
+            
+            // Registrar el intento de envío en un archivo de log (opcional)
+            $log_message = date('Y-m-d H:i:s') . " - Nuevo contacto #$contacto_id: $nombre $apellido ($email)\n";
+            @file_put_contents('contactos_log.txt', $log_message, FILE_APPEND);
+            
+            // Mostrar mensaje de éxito
+            $mensaje = "¡Gracias por contactarnos! Tu mensaje ha sido recibido correctamente. Nos pondremos en contacto contigo pronto.";
+            
+            // Limpiar los campos del formulario después del envío exitoso
+            $nombre = $apellido = $email = $telefono = $asunto = $mensaje_texto = "";
+            
+            /* 
+            // Código para enviar correo electrónico (desactivado en desarrollo)
+            
             $para = EMAIL_ADMIN; // Usa la constante definida en config.php
+            
             $asunto_email = "Nuevo mensaje de contacto #$contacto_id: $asunto";
             
+            
+            
             $mensaje_email = "
+            
             <html>
+            
             <head>
+                
                 <title>Nuevo mensaje de contacto</title>
+            
             </head>
+            
             <body>
+                
                 <h2>Nuevo mensaje de contacto #$contacto_id</h2>
+                
                 <p><strong>Nombre:</strong> $nombre $apellido</p>
+                
                 <p><strong>Email:</strong> $email</p>
+                
                 <p><strong>Teléfono:</strong> $telefono</p>
+                
                 <p><strong>Asunto:</strong> $asunto</p>
+                
                 <p><strong>Mensaje:</strong><br>$mensaje_texto</p>
+                
                 <p><strong>Fecha:</strong> " . date('d/m/Y H:i:s') . "</p>
+            
             </body>
+            
             </html>
+            
             ";
             
+            
+            
             // Cabeceras para el correo HTML
+            
             $cabeceras = "MIME-Version: 1.0" . "\r\n";
+            
             $cabeceras .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            
             $cabeceras .= "From: $email" . "\r\n";
             
+            
+            
             // Enviar el correo
+            
             if (mail($para, $asunto_email, $mensaje_email, $cabeceras)) {
+                
                 $mensaje = "¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.";
                 
-                // Limpiar los campos del formulario después del envío exitoso
-                $nombre = $apellido = $email = $telefono = $asunto = $mensaje_texto = "";
             } else {
+                
                 $error = "Hubo un problema al enviar el correo. Por favor, inténtelo de nuevo más tarde.";
+            
             }
+            */
         } else {
             $error = "Error al guardar el mensaje: " . $conn->error;
         }
