@@ -1,6 +1,7 @@
 <?php
-// Incluir archivo de configuración
+// Incluir archivos de configuración y helpers
 require_once 'config/config.php';
+require_once 'includes/mail_helper.php';
 
 $mensaje = '';
 $error = '';
@@ -31,84 +32,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             $contacto_id = $stmt->insert_id;
             
-            // En entorno de desarrollo, solo guardamos en la base de datos sin enviar correo
-            // para evitar errores de conexión con el servidor de correo
+            // Preparar los datos del contacto para la notificación
+            $contact_data = [
+                'id' => $contacto_id,
+                'nombre' => $nombre,
+                'apellido' => $apellido,
+                'email' => $email,
+                'telefono' => $telefono,
+                'asunto' => $asunto,
+                'mensaje' => $mensaje_texto,
+                'fecha' => date('Y-m-d H:i:s')
+            ];
             
-            // Registrar el intento de envío en un archivo de log (opcional)
-            $log_message = date('Y-m-d H:i:s') . " - Nuevo contacto #$contacto_id: $nombre $apellido ($email)\n";
-            @file_put_contents('contactos_log.txt', $log_message, FILE_APPEND);
+            // Intentar enviar la notificación por correo
+            $mail_sent = send_contact_notification($contact_data);
+            
+            // Se ha desactivado el registro detallado de contactos
             
             // Mostrar mensaje de éxito
             $mensaje = "¡Gracias por contactarnos! Tu mensaje ha sido recibido correctamente. Nos pondremos en contacto contigo pronto.";
             
             // Limpiar los campos del formulario después del envío exitoso
             $nombre = $apellido = $email = $telefono = $asunto = $mensaje_texto = "";
-            
-            /* 
-            // Código para enviar correo electrónico (desactivado en desarrollo)
-            
-            $para = EMAIL_ADMIN; // Usa la constante definida en config.php
-            
-            $asunto_email = "Nuevo mensaje de contacto #$contacto_id: $asunto";
-            
-            
-            
-            $mensaje_email = "
-            
-            <html>
-            
-            <head>
-                
-                <title>Nuevo mensaje de contacto</title>
-            
-            </head>
-            
-            <body>
-                
-                <h2>Nuevo mensaje de contacto #$contacto_id</h2>
-                
-                <p><strong>Nombre:</strong> $nombre $apellido</p>
-                
-                <p><strong>Email:</strong> $email</p>
-                
-                <p><strong>Teléfono:</strong> $telefono</p>
-                
-                <p><strong>Asunto:</strong> $asunto</p>
-                
-                <p><strong>Mensaje:</strong><br>$mensaje_texto</p>
-                
-                <p><strong>Fecha:</strong> " . date('d/m/Y H:i:s') . "</p>
-            
-            </body>
-            
-            </html>
-            
-            ";
-            
-            
-            
-            // Cabeceras para el correo HTML
-            
-            $cabeceras = "MIME-Version: 1.0" . "\r\n";
-            
-            $cabeceras .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            
-            $cabeceras .= "From: $email" . "\r\n";
-            
-            
-            
-            // Enviar el correo
-            
-            if (mail($para, $asunto_email, $mensaje_email, $cabeceras)) {
-                
-                $mensaje = "¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.";
-                
-            } else {
-                
-                $error = "Hubo un problema al enviar el correo. Por favor, inténtelo de nuevo más tarde.";
-            
-            }
-            */
         } else {
             $error = "Error al guardar el mensaje: " . $conn->error;
         }
@@ -224,14 +169,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
 
-
-      <!-- Footer -->
-      <footer class="bg-dark text-white py-4">
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -250,9 +193,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-md-4 mb-3">
                     <h5 class="text-orange">Contacto</h5>
                     <address>
-                        <p><i class="fas fa-envelope me-2"></i> info@empresa.com</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@nsystem.com</p>
                     </address>
-                   
                 </div>
             </div>
             <hr class="bg-secondary">
