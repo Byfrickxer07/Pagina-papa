@@ -1,6 +1,4 @@
 <?php
-// Incluir archivos de configuración y helpers
-require_once 'config/config.php';
 
 $mail_fn_defined = function_exists('send_contact_notification');
 if (!$mail_fn_defined) {
