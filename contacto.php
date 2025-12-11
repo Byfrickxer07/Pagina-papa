@@ -1,71 +1,4 @@
-<?php
 
-$mail_fn_defined = function_exists('send_contact_notification');
-if (!$mail_fn_defined) {
-    function send_contact_notification($contact_data) {
-        return true;
-    }
-}
-
-$mensaje = '';
-$error = '';
-
-// Procesar el formulario cuando se envía
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validar los campos del formulario
-    $nombre = trim($_POST['nombre']);
-    $apellido = trim($_POST['apellido']);
-    $email = trim($_POST['email']);
-    $telefono = trim($_POST['telefono']);
-    $asunto = trim($_POST['asunto']);
-    $mensaje_texto = trim($_POST['mensaje']);
-    
-    // Validación básica
-    if (empty($nombre) || empty($apellido) || empty($email) || empty($mensaje_texto)) {
-        $error = "Por favor, complete todos los campos obligatorios.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Por favor, ingrese un correo electrónico válido.";
-    } else {
-        // Insertar en la base de datos
-        $sql = "INSERT INTO contactos (nombre, apellido, email, telefono, asunto, mensaje, fecha) 
-                VALUES (?, ?, ?, ?, ?, ?, NOW())";
-        
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssss", $nombre, $apellido, $email, $telefono, $asunto, $mensaje_texto);
-        
-        if ($stmt->execute()) {
-            $contacto_id = $stmt->insert_id;
-            
-            // Preparar los datos del contacto para la notificación
-            $contact_data = [
-                'id' => $contacto_id,
-                'nombre' => $nombre,
-                'apellido' => $apellido,
-                'email' => $email,
-                'telefono' => $telefono,
-                'asunto' => $asunto,
-                'mensaje' => $mensaje_texto,
-                'fecha' => date('Y-m-d H:i:s')
-            ];
-            
-            // Intentar enviar la notificación por correo
-            $mail_sent = send_contact_notification($contact_data);
-            
-            // Se ha desactivado el registro detallado de contactos
-            
-            // Mostrar mensaje de éxito
-            $mensaje = "¡Gracias por contactarnos! Tu mensaje ha sido recibido correctamente. Nos pondremos en contacto contigo pronto.";
-            
-            // Limpiar los campos del formulario después del envío exitoso
-            $nombre = $apellido = $email = $telefono = $asunto = $mensaje_texto = "";
-        } else {
-            $error = "Error al guardar el mensaje: " . $conn->error;
-        }
-        
-        $stmt->close();
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -120,51 +53,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-lg-8 col-md-10 mb-4 text-center">
                     <h2 class="section-title text-center">Envíanos un Mensaje</h2>
                     
-                    <?php if (!empty($mensaje)): ?>
-                        <div class="alert alert-success" role="alert">
-                            <?php echo $mensaje; ?>
-                        </div>
-                    <?php endif; ?>
+                   
                     
-                    <?php if (!empty($error)): ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?php echo $error; ?>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="contact-form mx-auto" style="max-width: 600px;">
+                    <form action="phpmailer.php" method="post" class="contact-form mx-auto" style="max-width: 600px;">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="nombre" class="form-label">Nombre *</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo isset($nombre) ? htmlspecialchars($nombre) : ''; ?>" required>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="apellido" class="form-label">Apellido *</label>
-                                <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo isset($apellido) ? htmlspecialchars($apellido) : ''; ?>" required>
+                                <input type="text" class="form-control" id="apellido" name="apellido" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="email" class="form-label">Email *</label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="telefono" class="form-label">Teléfono</label>
-                                <input type="tel" class="form-control" id="telefono" name="telefono" value="<?php echo isset($telefono) ? htmlspecialchars($telefono) : ''; ?>">
+                                <input type="tel" class="form-control" id="telefono" name="telefono" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="asunto" class="form-label">Asunto</label>
-                            <input type="text" class="form-control" id="asunto" name="asunto" value="<?php echo isset($asunto) ? htmlspecialchars($asunto) : ''; ?>">
+                            <input type="text" class="form-control" id="asunto" name="asunto" required>
                         </div>
                         <div class="mb-3">
                             <label for="mensaje" class="form-label">Mensaje *</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required><?php echo isset($mensaje_texto) ? htmlspecialchars($mensaje_texto) : ''; ?></textarea>
-                        </div>
-                        <div class="mb-3 form-check text-start">
-                            <input type="checkbox" class="form-check-input" id="privacidad" required>
-                            <label class="form-check-label" for="privacidad">Acepto la política de privacidad *</label>
-                        </div>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                        </div>  
                         <div class="text-center">
                             <button type="submit" class="btn btn-orange btn-lg">Enviar Mensaje</button>
                         </div>
