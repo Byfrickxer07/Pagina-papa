@@ -34,9 +34,6 @@ require_once 'config/config.php';
                         <a class="nav-link active" href="servicios.php">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="noticias.php">Noticias</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="contacto.php">Contacto</a>
                     </li>
                 </ul>
@@ -156,7 +153,6 @@ require_once 'config/config.php';
                     <ul class="list-unstyled">
                         <li><a href="index.php" class="text-white">Inicio</a></li>
                         <li><a href="servicios.php" class="text-white">Servicios</a></li>
-                        <li><a href="noticias.php" class="text-white">Noticias</a></li>
                         <li><a href="contacto.php" class="text-white">Contacto</a></li>
                     </ul>
                 </div>

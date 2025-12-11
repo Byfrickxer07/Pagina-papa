@@ -34,9 +34,6 @@ require_once 'config/config.php';
                         <a class="nav-link" href="servicios.php">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="noticias.php">Noticias</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="contacto.php">Contacto</a>
                     </li>
                 </ul>
@@ -143,73 +140,6 @@ require_once 'config/config.php';
         </div>
     </section>
 
-    <!-- Latest News Section -->
-    <section class="latest-news py-5">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">Últimas Noticias</h2>
-            <div class="row">
-                <?php
-                // Obtener las 3 últimas noticias
-                $sql = "SELECT * FROM noticias ORDER BY fecha DESC LIMIT 3";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<div class="col-md-4 mb-4">';
-                        echo '<div class="card news-card h-100">';
-                        echo '<img src="' . $row['imagen'] . '" class="card-img-top" alt="' . $row['titulo'] . '">';
-                        echo '<div class="card-body">';
-                        echo '<h5 class="card-title">' . $row['titulo'] . '</h5>';
-                        echo '<p class="card-text">' . substr($row['contenido'], 0, 100) . '...</p>';
-                        echo '<p class="text-muted"><small>Publicado: ' . date('d/m/Y', strtotime($row['fecha'])) . '</small></p>';
-                        echo '<a href="noticia.php?id=' . $row['id'] . '" class="btn btn-orange">Leer Más</a>';
-                        echo '</div></div></div>';
-                    }
-                } else {
-                    // Mostrar noticias de ejemplo si no hay en la base de datos
-                    ?>
-                    <div class="col-md-4 mb-4">
-                        <div class="card news-card h-100">
-                            <img src="img/news1.jpg" class="card-img-top" alt="Noticia 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Lanzamiento de Inteligencia Artificial Avanzada</h5>
-                                <p class="card-text">Hemos desarrollado una nueva plataforma de IA que revoluciona el análisis de datos empresariales...</p>
-                                <p class="text-muted"><small>Publicado: 25/05/2025</small></p>
-                                <a href="#" class="btn btn-orange">Leer Más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card news-card h-100">
-                            <img src="img/news2.jpg" class="card-img-top" alt="Noticia 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Nueva Tecnología de Realidad Aumentada</h5>
-                                <p class="card-text">Presentamos nuestra innovadora solución de Realidad Aumentada para el sector industrial que mejora la eficiencia...</p>
-                                <p class="text-muted"><small>Publicado: 15/05/2025</small></p>
-                                <a href="#" class="btn btn-orange">Leer Más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card news-card h-100">
-                            <img src="img/news3.jpg" class="card-img-top" alt="Noticia 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Avances en Ciberseguridad</h5>
-                                <p class="card-text">Hemos desarrollado un nuevo sistema de protección contra amenazas cibernéticas utilizando algoritmos de aprendizaje automático...</p>
-                                <p class="text-muted"><small>Publicado: 05/05/2025</small></p>
-                                <a href="#" class="btn btn-orange">Leer Más</a>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-                }
-                ?>
-            </div>
-            <div class="text-center mt-4">
-                <a href="noticias.php" class="btn btn-outline-orange">Ver Todas las Noticias</a>
-            </div>
-        </div>
-    </section>
 
      <!-- Footer -->
      <footer class="bg-dark text-white py-4">
@@ -224,7 +154,6 @@ require_once 'config/config.php';
                     <ul class="list-unstyled">
                         <li><a href="index.php" class="text-white">Inicio</a></li>
                         <li><a href="servicios.php" class="text-white">Servicios</a></li>
-                        <li><a href="noticias.php" class="text-white">Noticias</a></li>
                         <li><a href="contacto.php" class="text-white">Contacto</a></li>
                     </ul>
                 </div>

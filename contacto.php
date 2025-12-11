@@ -1,7 +1,13 @@
 <?php
 // Incluir archivos de configuración y helpers
 require_once 'config/config.php';
-require_once 'includes/mail_helper.php';
+
+$mail_fn_defined = function_exists('send_contact_notification');
+if (!$mail_fn_defined) {
+    function send_contact_notification($contact_data) {
+        return true;
+    }
+}
 
 $mensaje = '';
 $error = '';
@@ -94,9 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a class="nav-link" href="servicios.php">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="noticias.php">Noticias</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="contacto.php">Contacto</a>
                     </li>
                 </ul>
@@ -186,7 +189,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <ul class="list-unstyled">
                         <li><a href="index.php" class="text-white">Inicio</a></li>
                         <li><a href="servicios.php" class="text-white">Servicios</a></li>
-                        <li><a href="noticias.php" class="text-white">Noticias</a></li>
                         <li><a href="contacto.php" class="text-white">Contacto</a></li>
                     </ul>
                 </div>
